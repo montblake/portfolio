@@ -43,7 +43,7 @@ def resume():
         msg = Message("Resume Requested!!!", sender=SENDER, recipients=[form.email.data])
         msg.body = """
         Here is the resume you requested %s 
-        """ % (form.email.data)
+        """ %(form.email.data)
 
         with app.open_resource("static/resources/blake_montgomery_resume_092421.pdf") as bm_resume:
             msg.attach("static/resources/blake_montgomery_resume_092421.pdf", "text/pdf", bm_resume.read())
