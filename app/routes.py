@@ -3,7 +3,7 @@ from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
 from flask_mail import Message
 
-SENDER = app.config['MAIL_USERNAME']
+SENDER = app.config['ADMINS'][0]
 
 
 @app.route('/')
@@ -34,12 +34,14 @@ def contact():
 
     return render_template('contact.html', form=form, title='contact')
 
+
 @app.route('/resume', methods=['GET', 'POST'])
 def resume():
     form = RequestResumeForm()
 
     if form.validate_on_submit():
-        print('Yes, valid!')
+        print('Yes, valid!')    
+
         msg = Message("Resume Requested!!!", sender=SENDER, recipients=[form.email.data])
         msg.body = """
         Here is the resume you requested %s 
