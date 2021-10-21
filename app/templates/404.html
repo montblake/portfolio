@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section id="error-404" class="main-content">
+        <div id="container-main">
+            <h1 class="error-header">File Not Found</h1>
+            <p class="error-text">Sorry for the inconvenience.</p>
+            <div class="button-grp">
+                <a href="{{ url_for('index') }}">Back</a>
+            </div>
+            
+        </div>
+    </section>
+{% endblock %}

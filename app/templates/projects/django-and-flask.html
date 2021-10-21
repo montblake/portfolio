@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section id="" class="main-content">
+    <div id="container-main">
+
+        <header class="project-head">
+            <h1>Django and Flask</h1>
+            <nav>
+                <div id="btn-game" class="proj-btn proj-btn-current">The App</div>
+                <div id="btn-project" class="proj-btn proj-btn-active">The Project</div>
+                <div id="btn-tech" class="proj-btn proj-btn-active">Technologies Used</div>
+            </nav>
+        </header>
+        <main>
+            <div class="proj-text">
+
+                <div id="the-game">
+                    <p class="narrow">In the Eighties, he was a heart-throb. In the Nineties, a superstar. By the aughts... he was the subject of a drinking game.</p>
+                    <p class="narrow">Six Degrees of Kevin Bacon was a play on the concept that any two people in the world could be linked by six personal connections or fewer. Or something like that. </p>
+                    
+                </div>
+                <div id="the-project" class="hidden">
+                    <p class="narrow">This project originated as a means to feature data gathered from a third-party api.</p>
+                    
+                    <p class="narrow">The actor info is easy enough to aquire, even if it takes two searches to get all the data we need. But each actor returns sometimes a few hundred results or more for their film output.</p>
+                    
+                </div>
+                
+                <div id="the-techs" class="hidden">
+                    <p class="narrow">This project is built in Python with a Flask backend and deployed on Heroku. The database is Heroku's version of PostgreSql. The frontend is built in Node/Express and features a ReactJS UI.</p>
+                    
+                    <p class="narrow">Having seen a system operate with more complexity than on previous projects, I am more than ever aware of the value of unit testing and how the confidence in building up an app in discrete testable chunks could be incredibly beneficial.</p>
+                </div>
+                
+                <div class="button-grp">
+                    <a class="button" href="https://flask-detective-react-frontend.herokuapp.com/" target="_blank">Open App</a>
+                    <a class="button" href="https://github.com/montblake/flask_api_react_frontend" target="_blank" >Frontend Code on GitHub</a>
+                    <a class="button" href="https://github.com/montblake/flask_api_backend" target="_blank" >Backend Code on GitHub</a>
+                </div>
+            </div>
+
+            <div class="proj-image">
+                <img id="image1" class="current-image" src="{{url_for('static', filename="images/dj-flask.png")}}" alt="project screenshot">
+                <img id="image2" class="hidden-image" src="{{url_for('static', filename="images/dj-flask2.png")}}" alt="project screenshot">
+                <img id="image3" class="hidden-image" src="{{url_for('static', filename="images/dj-flask3.png")}}" alt="project screenshot">
+            </div>
+
+        </main>
+    </div>
+</section>
+<script src="{{url_for('static', filename='js/projects.js')}}"></script>
+{% endblock %}

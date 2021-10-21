@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+ 
+    <script src="https://kit.fontawesome.com/b54edfb646.js" crossorigin="anonymous"></script>
+  
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header id="header">
+               
+        <nav id="links-pages">
+            {% if title == 'home' %}
+                <a href="{{url_for('index')}}" class="current-page-btn">Home</a>
+            {% else %}
+                <a href="{{url_for('index')}}" class="active-btn">Home</a>
+            {% endif %}
+
+            {% if title == 'projects' %}
+                <a href="{{url_for('projects')}}" class="current-page-btn">Projects</a>
+            {% else %}
+                <a href="{{url_for('projects')}}" class="active-btn">Projects</a>
+            {% endif %}
+
+            {% if title == 'contact' %}
+                <a href="{{url_for('contact')}}" class="current-page-btn">Contact</a>
+            {% else %}
+                <a href="{{url_for('contact')}}" class="active-btn">Contact</a>
+            {% endif %}
+            </nav>
+       
+        <h1>Blake Montgomery<span> software engineer</span></h1>
+    </header>
+
+    
+    {% block content %} {% endblock %}
+    
+    <footer id="footer">
+        <p><span>Blake Montgomery</span> is a software engineer and web developer based in Chicago, Illinois.</p>
+        <p>Questions, comments, job offers? Projects to propose? Bugs to report? <a href="{{url_for('contact')}}">Please get in touch.</a></p>
+        <p>Need to see a resume? <a href="{{url_for('resume')}}">That can be arranged.</a></p>
+        <nav class="links-contact">
+            <a href="https://www.linkedin.com/in/blake-montgomery312/" target="_blank" ><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/montblake" target="_blank"><i class="fab fa-github"></i></a>
+
+        </nav>
+    </footer>
+  
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section id="about" class="main-content">
+        <div id="container-main">
+            
+            <header>
+                <ul id="main-nav">
+                    <li id="btn-intro" class="btn-current-subject">Introduction</li>
+                    <li id="btn-boot" class="btn-active">bootcamp grad</li>
+                    <li id="btn-theater" class="btn-active">career-changer</li>
+                    <li id="btn-full" class="btn-active">full stack development</li>
+                    <li id="btn-current" class="btn-active">current thoughts</li>
+                </ul>
+            </header>
+            <main>
+
+                <div class="proj-text">
+                    
+                    <div id="info-intro" class="para-current-subject">
+                        <p>Hi. I'm Blake, a software engineer and web developer based in Chicago, Illinois.</p>
+
+                        <p>I believe my <a href="/projects" class="text-tag">projects</a> do a good job conveying my interests and abilities as a developer, but if you're looking for more information, I've put together some thoughts on a few subjects which might offer you more insight into how I think about the work.</p>
+
+                        <p>I'm a recent <span id="tag-boot" class="text-tag">bootcamp grad </span> and the project-based learning has shaped who I am as a junior developer and how I approach engineering.
+                        <br>bootcamp = ?
+                        <br>
+                        </p>
+                        <p>Like many bootcamp grads, I enter tech as a <span id="tag-theater" class="text-tag">career-changer</span>.  Previously I've worked as a theater artist in a variety of capacities.</p>
+                        <p><span  id="tag-full" class="text-tag">Full stack</span>. While my previous career perhaps naturally prepared me for frontend development and attention to user experience, the more time I spend in the field, the more I am drawn to the technical details and backend structures that make data-driven experiences possible.</p>
+                        <p>Perhaps, like many bootcamp grads, I find it can be overwhelming confronting all the things we don't know as we enter the job market. I've tried to capture my <span id="tag-current" class="text-tag">current thoughts</span> on how I approach this challenge.</p>
+                    </div>
+                    
+                    <div id="info-boot" class="hidden">
+                        <p>As a bootcamp grad <span class="aside">(General Assembly, software engineering immersive -- remote)</span> I'm a proven quick-study, comfortable learning by doing, developing understanding by getting something to work.</p>
+                        <p>My program was quite project heavy so I've become accustomed to project planning, the execution of self-directed work, and engineering strategies: first, achieve MVP, and then build out features one at a time with successive git branches.</p>
+                        <p>Moved quickly from front to back, from both relational and non-relational databases, from node backend to rails to flask. Behind all the various stacks, the same engineering principles at play.</p>
+                    </div>
+                    
+                    <div id="info-full" class="hidden">
+                        <p>Full Stack. For me front to back information. structure for the play. I love the play but the magic is really in the structure. Microdosing plaid vape, aliqua knausgaard hella exercitation air plant hoodie occupy. You probably haven't heard of them ut deep v adipisicing photo booth franzen portland, echo park ad craft beer kogi cupidatat single-origin coffee cardigan.<br><br> Narwhal craft beer wolf tousled.</p>
+                        <p>Flexitarian sriracha DIY, commodo XOXO squid distillery slow-carb cold-pressed cornhole. Voluptate taxidermy literally mumblecore normcore, thundercats austin PBR&B intelligentsia humblebrag truffaut aliqua fixie lumbersexual. Laboris tofu fanny pack VHS knausgaard sint, trust fund commodo four loko thundercats brunch.</p>
+                    </div>
+                    
+                    <div id="info-theater" class="hidden">
+                        <p>: performer, director, creator, producer, administrator, educator, movement coach, and more</p>
+                        <p>As a theater creator. Making things, managing time in an amorphous process. Trusting process and iterations. In a very different medium, absolutely concerned with the user's experience. That is what we are creating. Everything that supports that should be cultivated, everything that detracts should be eliminated.</p>
+                        <p>I also, through direction and institution leading have learned to communicate a vision, encourage the enthusiasm and commitment of the ensemble, and manage the ups and downs of an iterative process. Capitalizing on successes and using failures to identify flaws and rediscover the core.</p>
+                    </div>
+                    
+                    <div id="info-current" class="hidden">
+                        <p>Guiding current work. Desire to continue to understand Flask and the backend. More with serving data. Databases. FOcus on the same tools again and again. Because the questions I want to ask first are about HOW THINGS ARE DONE, A MORE PROFESSIONAL ENGINEERING WAY OF WORKING. Comments. Learning use of clean code techniques.</p>
+                        <p>Clean git commits. Using git appropriately. Staying focused. Logging and event handling are important additions. Organization. MOSTLY WORKING IN A CONTROLLED MANNER. Tests, testing, and test driven development!!!!</p>
+                    </div>
+                    
+                    <div id="info-code" class="hidden">
+                        <p>Code in place. I got my start. Shout out ot pedagogy. To getting me to think beyond lines of code. To begin asking how do I solve problems? While stressing the details of not just how Python works but why it work. The lectures and pedagogy show the results of a program years in the making, many iterations. And the insight, passion, and care of professors Piech and Sahami.</p>
+                        <p>To go back this past spring and Lead a section of the class. was a wonderful chance to give back and to get access to a bunch of teaching pedagogy insights from some really amazing professors. Tilde offal consectetur 3 wolf moon. Bitters dreamcatcher culpa cillum aliquip, ipsum cray tumblr id aliqua salvia pok pok lumbersexual kogi. Tempor twee man bun letterpress umami. Sed typewriter tousled, magna narwhal est et elit schlitz culpa taxidermy.</p>
+                    </div>
+                    
+                </div>
+
+                <div class="proj-image">
+                    <img id="image1" class="current-image" src="{{url_for('static', filename="images/blake_pic.jpg")}}" alt="project screenshot">
+                    <img id="image2" class="hidden-image" src="{{url_for('static', filename="images/six-deg2.png")}}" alt="project screenshot">
+                    <img id="image3" class="hidden-image" src="{{url_for('static', filename="images/six-deg3.png")}}" alt="project screenshot">
+                </div>
+            </main>
+
+        </div>
+    </section>
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+{% endblock %}
+

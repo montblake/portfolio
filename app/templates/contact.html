@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+<section id="contact" class="main-content">
+
+  <div id="container-main">
+    {% if not success %}
+    <h2>Contact Blake</h2>
+    {% endif %}
+      
+    {% if success %}
+
+        <h2>Thank you for your message. We'll get back to you shortly.</h2>
+  
+    {% else %}
+   
+      {% for message in form.name.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+   
+      {% for message in form.email.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+   
+      {% for message in form.subject.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+   
+      {% for message in form.message.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+   
+      <form action="{{ url_for('contact') }}" method=post>
+        {{ form.hidden_tag() }}
+   
+        {{ form.name.label }}
+        {{ form.name }}
+   
+        {{ form.email.label }}
+        {{ form.email }}
+   
+        {{ form.subject.label }}
+        {{ form.subject }}
+   
+        {{ form.message.label }}
+        {{ form.message }}
+   
+        {{ form.submit }}
+      </form>
+   
+    {% endif %}
+  </div>
+
+</section>
+{% endblock %}

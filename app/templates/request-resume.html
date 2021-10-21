@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+<section id="contact" class="main-content">
+
+  <div id="container-main">
+    {% if not success %}
+    <h2>Request a resume</h2>
+    {% endif %}
+      
+    {% if success %}
+      <h2>Thanks. Blake's resume has been sent to {{ requesting_address }}</h2>
+   
+    {% else %}
+     
+      <form action="{{ url_for('resume') }}" method=post>
+        {{ form.hidden_tag() }}
+        <p>
+          {{ form.email.label }}
+          {{ form.email(size=32)}}
+          {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </p>
+        <p>
+          {{ form.email_confirmation.label }}
+          {{ form.email_confirmation(size=32)}}
+          {% for error in form.email_confirmation.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </p>
+        <p>
+          {{ form.submit }}
+        </p>       
+      </form>
+   
+    {% endif %}
+  </div>
+
+</section>
+{% endblock %}
