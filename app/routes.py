@@ -3,7 +3,7 @@ from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
 from flask_mail import Message
 
-SENDER = app.config['MESSAGE_SENDER']
+SENDER = app.config['MAIL_USERNAME']
 
 
 @app.route('/')

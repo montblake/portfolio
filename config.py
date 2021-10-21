@@ -7,4 +7,3 @@ class Config(object):
     MAIL_PORT = os.environ.get('MAILGUN_SMTP_PORT')
     MAIL_USERNAME = os.environ.get('MAILGUN_SMTP_LOGIN')
     MAIL_PASSWORD = os.environ.get('MAILGUN_SMTP_PASSWORD')
-    MESSAGE_SENDER = os.environ.get('MESSAGE_SENDER')
