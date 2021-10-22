@@ -5,9 +5,9 @@ from flask_mail import Message
 from app.email import send_resume
 
 
-import sendgrid
-import os
-from sendgrid.helpers.mail import *
+# import sendgrid
+# import os
+# from sendgrid.helpers.mail import *
 
 
 
