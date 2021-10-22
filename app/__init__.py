@@ -1,4 +1,3 @@
-from re import L
 from flask import Flask
 from config import Config
 import logging
@@ -47,6 +46,7 @@ app.logger.addHandler(file_handler)
 app.logger.setLevel(logging.INFO)
 app.logger.info('App startup')
 
+# EMAIL SETUP FOR LOGGING
 if not app.debug:
     if app.config['MAIL_SERVER']:
         auth = None
@@ -62,9 +62,8 @@ if not app.debug:
             credentials=auth, secure=secure)
         mail_handler.setLevel(logging.INFO)
         app.logger.addHandler(mail_handler)
-    
 
-# Mail for Contacting Blake
+# instance of Mail() for contacting Blake
 mail = Mail(app)
 
 

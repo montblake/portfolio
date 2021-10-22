@@ -2,14 +2,24 @@ from app import app, mail
 from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
 from flask_mail import Message
+from app.email import send_resume
 
-SENDER = app.config['ADMINS'][0]
+
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
+
 
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html', title='home')
+
+
+# /////////////////////////////// CONTACT AND RESUME-REQUEST /////////////////////////////
+# both routes need email to handle request
+# AT SOME POINT, separate email function to a separate file
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -38,46 +48,34 @@ def contact():
 @app.route('/resume', methods=['GET', 'POST'])
 def resume():
     form = RequestResumeForm()
-
+    to_address = form.email.data
     if form.validate_on_submit():
         print('Yes, valid!')    
+        send_resume(to_address)
 
-        msg = Message("Resume Requested!!!", sender=SENDER, recipients=[form.email.data])
-        msg.body = """
-        Here is the resume you requested %s 
-        """ %(form.email.data)
-
-        with app.open_resource("static/resources/blake_montgomery_resume_092421.pdf") as bm_resume:
-            msg.attach("static/resources/blake_montgomery_resume_092421.pdf", "text/pdf", bm_resume.read())
-
-        mail.send(msg)
-        return render_template('request-resume.html', success=True, requesting_address=form.email.data, title='request sent')
+        return render_template('request-resume.html', success=True, requesting_address=to_address, title='request sent')
            
     else:
         print('NOPE!!!')
         return render_template('request-resume.html', form=form, title='request resume')
 
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html', title='blog')
 
+#/////////////////////// PROJECT VIEW FUNCTIONS //////////////////////////
+# portfolio directory
 @app.route('/projects')
 def projects():
     return render_template('projects.html', title='projects')
 
+
+#  individual project pages
 @app.route('/projects/6dkb')
 def project_six_degrees():
     return render_template('projects/sixdegrees.html', title='6DKB')
 
-
 @app.route('/projects/chartreuse')
 def project_chartreuse():
     return render_template('projects/chartreuse.html', title='CHARTREUSE')
-
-@app.route('/projects/code-green')
-def project_code_green():
-    return render_template('projects/code-green.html', title='CODE GREEN')
 
 @app.route('/projects/forking-cocktails')
 def project_cocktails():
@@ -87,6 +85,18 @@ def project_cocktails():
 def project_django_and_flask():
     return render_template('projects/django-and-flask.html', title='DJANGO AND FLASK')
 
+
+# /////////////////////// PROJECTS CURRENTLY OFFLINE ///////////////////////
 @app.route('/projects/marketplace')
 def project_marketplace():
     return render_template('projects/marketplace.html', title='MARKETPLACE')
+
+@app.route('/projects/code-green')
+def project_code_green():
+    return render_template('projects/code-green.html', title='CODE GREEN')
+    
+    
+# ////////////////// FUTURE ROUTES ///////////////////////////////////// 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html', title='blog')
