@@ -2,7 +2,7 @@ from app import app, mail
 from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
 from flask_mail import Message
-from app.email import send_resume
+from app.email import send_resume, send_message
 
 
 # import sendgrid
@@ -21,6 +21,7 @@ def index():
 # both routes need email to handle request
 # AT SOME POINT, separate email function to a separate file
 
+
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -30,13 +31,7 @@ def contact():
             flash('All fields are required.')
             return render_template('contact.html', form=form, title='contact')
         else:
-            msg = Message(form.subject.data, sender=SENDER, recipients=[SENDER])
-            msg.body = """
-            From: %s <%s>
-            %s
-            """ % (form.name.data, form.email.data, form.message.data)
-            mail.send(msg)
-
+            send_message(form)
             return render_template('contact.html', success=True, title='contact')
            
     elif request.method == 'GET':
@@ -48,12 +43,11 @@ def contact():
 @app.route('/resume', methods=['GET', 'POST'])
 def resume():
     form = RequestResumeForm()
-    to_address = form.email.data
     if form.validate_on_submit():
-        print('Yes, valid!')    
-        send_resume(to_address)
-
-        return render_template('request-resume.html', success=True, requesting_address=to_address, title='request sent')
+        print('Yes, valid!')   
+        recipient = form.email.data
+        send_resume(recipient)
+        return render_template('request-resume.html', success=True, requesting_address=recipient, title='request sent')
            
     else:
         print('NOPE!!!')
