@@ -1,14 +1,7 @@
-from app import app, mail
+from app import app
 from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
-from flask_mail import Message
 from app.email import send_resume, send_message
-
-
-# import sendgrid
-# import os
-# from sendgrid.helpers.mail import *
-
 
 
 @app.route('/')
