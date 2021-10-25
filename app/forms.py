@@ -10,6 +10,7 @@ class ContactForm(FlaskForm):
     submit = SubmitField("Send")
 
 class RequestResumeForm(FlaskForm):
+    name = TextField("Name", validators=[DataRequired()])
     email = TextField("Email", validators=[DataRequired(), Email()])
     email_confirmation = TextField("Confirm Email", validators=[DataRequired(), EqualTo('email')])
     submit = SubmitField("Submit Resume Request")

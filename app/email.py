@@ -2,7 +2,8 @@ from flask_mail import Message
 from app import app, mail
 
 
-def send_resume(recipient):
+def send_resume(recipient_name, recipient_addr):
+    recipient = recipient_name + '<' + recipient_addr + '>'
     msg = Message('You requested a resume?', recipients=[recipient])
     msg.body = ('Here is your resume. Thanks!'
                 'Blake Montgomery.'

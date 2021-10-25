@@ -37,10 +37,11 @@ def contact():
 def resume():
     form = RequestResumeForm()
     if form.validate_on_submit():
-        print('Yes, valid!')   
-        recipient = form.email.data
-        send_resume(recipient)
-        return render_template('request-resume.html', success=True, requesting_address=recipient, title='request sent')
+        print('Yes, valid!')
+        recipient_name = form.name.data  
+        recipient_addr = form.email.data
+        send_resume(recipient_name, recipient_addr)
+        return render_template('request-resume.html', success=True, recipient=recipient_name, title='request sent')
            
     else:
         print('NOPE!!!')
