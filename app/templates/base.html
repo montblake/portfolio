@@ -43,9 +43,9 @@
     <footer id="footer">
         <p><span>Blake Montgomery</span> is a software engineer and web developer based in Chicago, Illinois.</p>
         <p>Questions, comments, job offers? Projects to propose? Bugs to report? <a href="{{url_for('contact')}}">Please get in touch.</a></p>
-        {{ if title is not "resume request"}}
+        {% if title is not "resume request" %}
         <p>Need to see a resume? <a href="{{url_for('resume')}}">That can be arranged.</a></p>
-        {{ endif }}
+        {% endif %}
         <nav class="links-contact">
             <a href="https://www.linkedin.com/in/blake-montgomery312/" target="_blank" ><i class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/montblake" target="_blank"><i class="fab fa-github"></i></a>
