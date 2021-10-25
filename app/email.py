@@ -5,7 +5,7 @@ from app import app, mail
 
 def send_resume(recipient):
     msg = Message('You requested a resume?', recipients=[recipient])
-    msg.body = ('Here is your resume. Thanks!'
+    msg.body = ('Here is your resume. Thanks!')
                 # 'Blake Montgomery.'
                 # 'software engineer | full-stack web development'
                 # '__________________________________________________'
@@ -14,11 +14,12 @@ def send_resume(recipient):
                 # 'Python, Flask, SQLAlchemy, SQLite, PodstgreSQL'
                 # 'NodeJS, Express, Mongoose, MongoDB'
                 # 'Ruby on Rails, Git'
-                )
-    msg.html = ('<p>Here is your resume. Thanks!</p> <h1>Blake Montgomery</h1> <h2>software engineer | full-stack web development</h2> <hr /> <h3>proficiences</h3> <ul> <li>ReactJS, vanilla JavaScript, HTML5, CSS/SCSS</li> <li>Python, Flask, SQLAlchemy, SQLite, PostgreSQL</li> <li>NodeJS, Express, Mongoose, MongoDB</li> <li>Ruby on Rails, Git</li>')
+                
+    msg.html = ('<p>Here is your resume. Thanks!</p>')        
+    # msg.html = ('<p>Here is your resume. Thanks!</p> <h1>Blake Montgomery</h1> <h2>software engineer | full-stack web development</h2> <hr /> <h3>proficiences</h3> <ul> <li>ReactJS, vanilla JavaScript, HTML5, CSS/SCSS</li> <li>Python, Flask, SQLAlchemy, SQLite, PostgreSQL</li> <li>NodeJS, Express, Mongoose, MongoDB</li> <li>Ruby on Rails, Git</li>')
     
-    with app.open_resource("static/resources/blake_montgomery_resume_092421.pdf") as bm_resume:
-        msg.attach("static/resources/blake_montgomery_resume_092421.pdf", "text/pdf", bm_resume.read())
+    # with app.open_resource("static/resources/blake_montgomery_resume_092421.pdf") as bm_resume:
+    #     msg.attach("static/resources/blake_montgomery_resume_092421.pdf", "text/pdf", bm_resume.read())
     
     mail.send(msg)
 
