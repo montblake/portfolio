@@ -1,4 +1,3 @@
-from _typeshed import SupportsItemAccess
 from flask_mail import Message
 from app import app, mail
 
