@@ -4,7 +4,7 @@ from app import app, mail
 
 def send_resume(recipient):
     msg = Message('You requested a resume?', recipients=[recipient])
-    msg.body = ('Here is your resume. Thanks!'
+    msg.body = ('Here is your resume. Thanks!')
     msg.html = ('<h1>Here is your resume.</h1> <p>Thanks!</p>')
     
     with app.open_resource("static/resources/blake_montgomery_resume_092421.pdf") as bm_resume:
