@@ -5,11 +5,7 @@ from app import app, mail
 def send_resume(recipient_name, recipient_addr):
     recipient = recipient_name + '<' + recipient_addr + '>'
     msg = Message('You requested a resume?', recipients=[recipient])
-    msg.body = ('Here is the resume for Blake Montgomery, software engineer. Thanks for taking a look! Please, let me know if you need anything else.'
-                'Blake Montgomery.'
-                'blakemontgomery312@gmail.com'
-                '(312) 933-4858'
-                )
+    msg.body = ('Here is the resume for Blake Montgomery, software engineer. Thanks for taking a look!Please, let me know if you need anything else.')
     
     with app.open_resource("static/resources/blake_montgomery_resume_092421.pdf") as bm_resume:
         msg.attach("static/resources/blake_montgomery_resume_092421.pdf", "text/pdf", bm_resume.read())
