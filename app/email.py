@@ -9,8 +9,14 @@ def send_resume(recipient_name, recipient_addr):
     
     with app.open_resource("static/resources/blake_montgomery_resume_102621.pdf") as bm_resume:
         msg.attach("static/resources/blake_montgomery_resume_102621.pdf", "text/pdf", bm_resume.read())
-    
+
     mail.send(msg)
+
+    msg2 = Message("Hey Blake: someone requested your resume:", recipients=['blakemontgomery312@gmail.com'])
+    msg2.body = """
+        %s <%s>
+        """ %(recipient_name, recipient_addr)
+    mail.send(msg2)
 
 
 def send_contact_form(form):
