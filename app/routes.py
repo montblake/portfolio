@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
-from app.email import send_resume, send_contact_form
+from app.email import send_resume, send_contact_form, forward_message
 
 
 @app.route('/')
@@ -93,11 +93,4 @@ def blog():
 # ////////////////////// RECEIVE EMAIL ///////////////////////////////////
 @app.route('/email', methods=['POST'])
 def receive_email():
-    form = request.form
-    send_message(form)
-
-    print('From:', request.form['from'])
-    print('To:', request.form['to'])
-    print('Subject:', request.form['subject'])
-    print('Body:', request.form['text'])
-    return ''
+    forward_message()

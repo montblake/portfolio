@@ -33,3 +33,10 @@ def send_contact_form(form):
         %s
         """ %(form.name.data, form.email.data, form.message.data)
     mail.send(msg)
+
+
+def forward_email():
+    subject = "Forwarded Message from blakemontgomery.com"
+    sender = app.config['MAIL_DEFAULT_SENDER']
+    msg = Message(subject, sender=sender, recipients=['blakemontgomery312@gmail.com'])
+    mail.send(msg)
