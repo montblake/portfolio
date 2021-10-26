@@ -97,4 +97,5 @@ def receive_email():
     # forward_email()
     print('FORWARDED!!!!!!For Real.')
     print("message: ", request.form['text'])
+    print("html message: ", request.form['html'])
     return ""
