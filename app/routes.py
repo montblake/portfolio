@@ -94,3 +94,4 @@ def blog():
 @app.route('/email', methods=['POST'])
 def receive_email():
     forward_email()
+    return ''
