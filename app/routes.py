@@ -95,5 +95,7 @@ def blog():
 @app.route('/email', methods=['POST'])
 def receive_email():
     forward_email()
+    message = request.form.data
     print('FORWARDED!!!!!!For Real.')
+    print("message: ", message)
     return "FORWARDED!!!!!"
