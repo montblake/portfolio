@@ -98,5 +98,5 @@ def receive_email():
     forward_subject = request.form['subject']
     forward_text = request.form['text']
     forward_html = request.form['html']
-    forward_email(forward_from, forward_to, forward_subject, forward_text, forward_html)
+    forward_email(forward_from, forward_to, forward_subject)
     return ''
