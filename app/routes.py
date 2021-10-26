@@ -1,3 +1,4 @@
+from logging import Logger
 from app import app
 from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
@@ -98,5 +99,5 @@ def receive_email():
     forward_subject = request.form['subject']
     forward_text = request.form['text']
     forward_html = request.form['html']
-    forward_email(forward_from, forward_to, forward_subject)
-    return ''
+    print(forward_from)
+    return forward_from
