@@ -93,5 +93,10 @@ def blog():
 # ////////////////////// RECEIVE EMAIL ///////////////////////////////////
 @app.route('/email', methods=['POST'])
 def receive_email():
-    forward_email()
+    forward_from = request.form['from']
+    forward_to = request.form['to']
+    forward_subject = request.form['subject']
+    forward_text = request.form['text']
+    forward_html = request.form['html']
+    forward_email(forward_from, forward_to, forward_subject, forward_text, forward_html)
     return ''
