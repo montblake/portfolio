@@ -1,7 +1,7 @@
 from app import app
 from flask import render_template, request, flash
 from app.forms import ContactForm, RequestResumeForm
-from app.email import send_resume, send_message
+from app.email import send_resume, send_contact_form
 
 
 @app.route('/')
@@ -24,7 +24,7 @@ def contact():
             flash('All fields are required.')
             return render_template('contact.html', form=form, title='contact')
         else:
-            send_message(form)
+            send_contact_form(form)
             return render_template('contact.html', success=True, title='contact')
            
     elif request.method == 'GET':
