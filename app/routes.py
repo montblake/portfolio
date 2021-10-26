@@ -98,8 +98,13 @@ def receive_email():
     print('FORWARDED!!!!!!For Real.')
     # msg_to = request.form['to']
     msg_from = request.form['from']
+    msg_subj = request.form['subject']
     msg_text = request.form['text']
     # print('to: ', msg_to)
     print('from: ', msg_from)
+    
+    print('subject: ', msg_subj)
+
     print('message: ', msg_text)
+    
     return ""
