@@ -88,3 +88,9 @@ def project_code_green():
 @app.route('/blog')
 def blog():
     return render_template('blog.html', title='blog')
+
+
+# ////////////////////// RECEIVE EMAIL ///////////////////////////////////
+@app.route('/inbox')
+def inbox():
+    return "Got it"
