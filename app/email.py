@@ -27,12 +27,15 @@ def send_resume(recipient_name, recipient_addr):
 def send_message(form):
     subject = form.subject.data
     sender = app.config['MAIL_DEFAULT_SENDER']
-    msg = Message(subject, sender=sender, recipients=[sender])
+    msg = Message(subject, sender=sender, recipients=['blakemontgomery312@gmail.com'])
+    # msg.body = """
+    #     From: %s <%s>
+    #     %s
+    #     """ %(form.name.data, form.email.data, form.message.data)
+
     msg.body = """
-        From: %s <%s>
+        From: %s
+        Subject: %s
         %s
-        """ %(form.name.data, form.email.data, form.message.data)
+    """ %(form['from'], form['subject'], form['text'])
     mail.send(msg)
-
-
-

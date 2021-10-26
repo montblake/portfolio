@@ -91,6 +91,13 @@ def blog():
 
 
 # ////////////////////// RECEIVE EMAIL ///////////////////////////////////
-@app.route('/inbox')
-def inbox():
-    return "Got it"
+@app.route('/email', methods=['POST'])
+def receive_email():
+    form = request.form
+    send_message(form)
+
+    print('From:', request.form['from'])
+    print('To:', request.form['to'])
+    print('Subject:', request.form['subject'])
+    print('Body:', request.form['text'])
+    return ''
