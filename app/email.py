@@ -44,5 +44,5 @@ def forward_email(msg_to, msg_from, msg_subj, msg_text):
     From: %s
     Subject: %s
     %s
-    """ %(msg_to. msg_from, msg_subj, msg_text)
+    """ %(msg_to, msg_from, msg_subj, msg_text)
     mail.send(msg)
