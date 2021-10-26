@@ -100,11 +100,16 @@ def receive_email():
     msg_from = request.form['from']
     msg_subj = request.form['subject']
     msg_text = request.form['text']
+    if request.form['html']:
+        msg_html = request.form['html']
     # print('to: ', msg_to)
     print('from: ', msg_from)
     
     print('subject: ', msg_subj)
 
     print('message: ', msg_text)
-    
+
+    if msg_html:
+        print('message (html): ', msg_html)
+
     return ""
