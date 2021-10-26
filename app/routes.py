@@ -96,5 +96,5 @@ def blog():
 def receive_email():
     # forward_email()
     print('FORWARDED!!!!!!For Real.')
-    print("message: ", request.form)
+    print("message: ", request.form.text)
     return ""
