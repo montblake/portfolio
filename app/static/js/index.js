@@ -24,6 +24,7 @@ const aboutParas = [introInfoEl, bootcampInfoEl, fullstackInfoEl, prevInfoEl, cu
 
 function regulate_click(event) {
     let clickedButton;
+    console.log(event.target);
     if (event.target  === introEl ||
         event.target === bootcampEl ||
         event.target === fullstackEl ||
@@ -91,6 +92,7 @@ fullstackEl.addEventListener('click', handleClick);
 prevEl.addEventListener('click', handleClick);
 currentEl.addEventListener('click', handleClick);
 
-bootcampTagEl.addEventListener('click', handleClick);fullstackTagEl.addEventListener('click', handleClick);
+bootcampTagEl.addEventListener('click', handleClick);
+fullstackTagEl.addEventListener('click', handleClick);
 prevTagEl.addEventListener('click', handleClick);
 currentTagEl.addEventListener('click', handleClick);

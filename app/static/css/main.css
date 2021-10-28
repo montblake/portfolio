@@ -161,6 +161,11 @@ h2 {
   margin-bottom: 2vh;
 }
 
+h3 {
+  margin-bottom: 1.2rem;
+}
+
+
 
 /* PAGE SPECIFICS */
 /* Contact Form */
@@ -290,6 +295,21 @@ form input#submit:active {
   color:var(--mid-tone);
 }
 
+.aside {
+  font-style: italic;
+}
+
+.make_bold {
+  font-weight: 700;
+}
+
+#ga {
+  font-weight: 700;
+}
+
+#cip {
+  font-weight: 700;
+}
 /* PROJECTS */
 a {
   text-decoration: none;
@@ -442,6 +462,7 @@ main {
 .proj-image img {
   border: 1px solid var(--light-mid);
   width: 100%;
+  opacity: 100%;
 }
 
 main p {
