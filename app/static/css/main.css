@@ -310,6 +310,15 @@ form input#submit:active {
 #cip {
   font-weight: 700;
 }
+
+#ensemble {
+  font-weight: 700;
+}
+
+#front-to-back {
+  font-weight: 700;
+}
+
 /* PROJECTS */
 a {
   text-decoration: none;
