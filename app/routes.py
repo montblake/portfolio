@@ -63,18 +63,22 @@ def projects():
 @app.route('/projects/6dkb')
 def project_six_degrees():
 
-    r1 = requests.get('https://github.com/montblake/six-degrees-react')
-    r2 = requests.get('https://github.com/montblake/six-degrees-flask')
-    print('R1:', r1)
-    print('R2:', r2)
+    # r1 = requests.get('https://six-degrees-flask-react.herokuapp.com')
+    # r2 = requests.get('https://six-degrees-flask.herokuapp.com/')
+    # print('R1:', r1)
+    # print('R2:', r2)
     return render_template('projects/sixdegrees.html', title='6DKB')
 
 @app.route('/projects/chartreuse')
 def project_chartreuse():
+    # r1 = requests.get('https://infinite-cove-47012.herokuapp.com')
+    # print('R1:', r1)
     return render_template('projects/chartreuse.html', title='CHARTREUSE')
 
 @app.route('/projects/forking-cocktails')
 def project_cocktails():
+    # r1 = requests.get('https://salty-inlet-99632.herokuapp.com/')
+    # print('R1:', r1)
     return render_template('projects/forking-cocktails.html', title='COCKTAILS')
 
 @app.route('/projects/django-and-flask')
