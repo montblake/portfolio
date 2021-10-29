@@ -3,6 +3,7 @@ from app import app
 from flask import render_template, request, flash, session
 from app.forms import ContactForm, RequestResumeForm
 from app.email import send_resume, send_contact_form, forward_email
+import requests
 
 
 @app.route('/')
@@ -61,6 +62,11 @@ def projects():
 #  individual project pages
 @app.route('/projects/6dkb')
 def project_six_degrees():
+
+    r1 = requests.get('https://github.com/montblake/six-degrees-react')
+    r2 = requests.get('https://github.com/montblake/six-degrees-flask')
+    print('R1:', r1)
+    print('R2:', r2)
     return render_template('projects/sixdegrees.html', title='6DKB')
 
 @app.route('/projects/chartreuse')
