@@ -1,6 +1,6 @@
 from logging import Logger
 from app import app
-from flask import render_template, request, flash
+from flask import render_template, request, flash, session
 from app.forms import ContactForm, RequestResumeForm
 from app.email import send_resume, send_contact_form, forward_email
 
@@ -8,6 +8,7 @@ from app.email import send_resume, send_contact_form, forward_email
 @app.route('/')
 @app.route('/index')
 def index():
+    app.logger.info('%s has arrived', request.remote_addr)
     return render_template('index.html', title='home')
 
 
@@ -108,3 +109,10 @@ def receive_email():
     
     forward_email(msg_to, msg_from, msg_subj, msg_text)
     return ""
+
+
+
+# /////////////////// DASHBOARD ///////////////////
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html', title="dashboard")
