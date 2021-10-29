@@ -4,6 +4,7 @@ from flask import render_template, request, flash, session
 from app.forms import ContactForm, RequestResumeForm
 from app.email import send_resume, send_contact_form, forward_email
 import requests
+from threading import Thread
 
 
 @app.route('/')
@@ -53,6 +54,13 @@ def resume():
 
 
 #/////////////////////// PROJECT VIEW FUNCTIONS //////////////////////////
+# async requests
+def make_async_request(app, url):
+    with app.app_context():
+        r = requests.get(url)
+        print('contact url', r)
+
+
 # portfolio directory
 @app.route('/projects')
 def projects():
@@ -62,31 +70,30 @@ def projects():
 #  individual project pages
 @app.route('/projects/6dkb')
 def project_six_degrees():
-
-    # r1 = requests.get('https://six-degrees-flask-react.herokuapp.com')
-    # r2 = requests.get('https://six-degrees-flask.herokuapp.com')
-    # print('R1:', r1)
-    # print('R2:', r2)
+    url1 = 'https://six-degrees-flask-react.herokuapp.com'
+    url2 = 'https://six-degrees-flask.herokuapp.com'
+    Thread(target=make_async_request, args=(app, url1)).start()
+    Thread(target=make_async_request, args=(app, url2)).start()
     return render_template('projects/sixdegrees.html', title='6DKB')
 
 @app.route('/projects/chartreuse')
 def project_chartreuse():
-    # r1 = requests.get('https://infinite-cove-47012.herokuapp.com')
-    # print('R1:', r1)
+    url1 = 'https://infinite-cove-47012.herokuapp.com' 
+    Thread(target=make_async_request, args=(app, url1)).start()
     return render_template('projects/chartreuse.html', title='CHARTREUSE')
 
 @app.route('/projects/forking-cocktails')
 def project_cocktails():
-    # r1 = requests.get('https://salty-inlet-99632.herokuapp.com')
-    # print('R1:', r1)
+    url1 = 'https://salty-inlet-99632.herokuapp.com' 
+    Thread(target=make_async_request, args=(app, url1)).start()
     return render_template('projects/forking-cocktails.html', title='COCKTAILS')
 
 @app.route('/projects/django-and-flask')
 def project_django_and_flask():
-    # r1 = requests.get('https://flask-detective-react-frontend.herokuapp.com')
-    # r2 = requests.get('https://server-only-dj-and-flask.herokuapp.com/')
-    # print('R1:', r1)
-    # print('R2:', r2)
+    url1 = 'https://flask-detective-react-frontend.herokuapp.com'
+    url2 = 'https://server-only-dj-and-flask.herokuapp.com'
+    Thread(target=make_async_request, args=(app, url1)).start()
+    Thread(target=make_async_request, args=(app, url2)).start()
     return render_template('projects/django-and-flask.html', title='DJANGO AND FLASK')
 
 
