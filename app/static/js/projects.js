@@ -39,7 +39,7 @@ function handleClick(event) {
         img3.classList.add('hidden-image');
         img3.classList.remove('current-image');
 
-    } else if (event.target.innerHTML === "The Project") {
+    } else if (event.target.innerHTML === "About The Project") {
         gameButton.classList.remove('proj-btn-current');
         projectButton.classList.add('proj-btn-current');
         techButton.classList.remove('proj-btn-current');

@@ -8,8 +8,8 @@
             <h1>SIX_D_KB</h1>
             <nav>
                 <div id="btn-game" class="proj-btn proj-btn-current">The Game</div>
-                <div id="btn-project" class="proj-btn proj-btn-active">The Project</div>
-                <div id="btn-tech" class="proj-btn proj-btn-active">Technologies Used</div>
+                <div id="btn-project" class="proj-btn proj-btn-active">About The Project</div>
+                <div id="btn-tech" class="proj-btn proj-btn-active">Coming Improvements</div>
             </nav>
         </header>
         <main id="main-bacon">
@@ -23,27 +23,26 @@
 
                 </div>
                 <div id="the-project" class="hidden">
-                    <p class="narrow">This project originated as a means to feature data gathered from a third-party api.</p>
+                    <h4>Version 1.0</h4>
+                    <p class="narrow">This was originally my first project at General Assembly in which the challenge was to build an app that gathered data from some free API and injected it into a simple html, css webpage using jQuery to handle dynamic rendering and user interaction</p>
+                    <p class="narrow">The real challenge turned out to be how much data I needed to deal with.
+                    In tackling "Six Degrees of Kevin Bacon", I needed to enter an actor's name and get back an official entry with name, image, and a list of all their films. Getting the filmography was easy. Filtering the list until only major Hollywood movies remained was a bit more interesting.</p>
+                    <p class="narrow">For major stars an initial list was often in the range of 500 or so entries; algorithm left us with 40 or 50 final films. The filmography list already contained not only those films' titles, but also the year they were released and poster images. What it didn't have was any kind of cast list. For that, the app needed to call a different API once for each film.</p>
+                    <p class="narrow">This first phase of the project was just about creating handling this information. I had to create some javascript objects to hold the data, the process had to be repeatable six times. Finally a visual frame had to be created to hold all this information as it arrived. There was no end, no real semblance of the game.</p>
+
+                    <h4>Version 2.0</h4>
+                    <p class="narrow">For the August Mintbean Hackathon for Junior Devs, I revised this project. Now it has a Flask backend along with a React frontend. The main goal was to go further in "gamifying" the data. I added the game logic and highlighted the game aspects in visual layout.</p>
+                    <p class="narrow">Beyond that, I had another goal: I wanted to store the results of all our API calls and reduce the need for calls over time. Working with SQLAlchemy and a PostgreSQL database, I added film and actor tables and set up the various relationships. Finally I had to create the logic to get information from the database if available before making an api call and also to check the completeness of that information and if necessary make an api call to complete the information.</p>
+                    <p class="narrow">Unfortunately, the current state of the app has a big drawback. It is SLOW! If the info is in the database, everything works great. If not, the current version has to collect ALL of the information before it returns ANYTHING. All fifty movie casts must be individually looked up before you can even see the actor's picture. Ooops.</p>                     
+
+
                     
-                    <p class="narrow">The actor info is easy enough to aquire, even if it takes two searches to get all the data we need. But each actor returns sometimes a few hundred results or more for their film output.</p>
-                    
-                    <p class="narrow">So the backend must filter those lists down to a list that balances completeness with the need for only truly legit movies. However, even this edited list, is rather large to search for every single actor.</p>
-                    
-                    <p class="narrow">I thought this iteration needed to focus three main goals: first to "gamefy" the data-centric app. This element has always been there but I wanted to spend time thinking through and building out further game features.</p>
-                    <p class="narrow">Secondly, I hoped to integrate a database into the search routine so that over time we might be able to relieve the reliance on api calls.</p>
-                    <p class="narrow">The last task was transitioning the app from an old-school jQuery tech stack to a modern, React frontend. Technology aside, I really wanted to think about components, modularity, and core engineering principles.</p>
                 </div>
                 
                 <div id="the-techs" class="hidden">
-                    <p class="narrow">This project is built in Python with a Flask backend and deployed on Heroku. The database is Heroku's version of PostgreSql. The frontend is built in Node/Express and features a ReactJS UI.</p>
-                    <p class="narrow">In addition to handling the database, the backend handles api calls to third party sources, protecting its API keys, processing search results, provides json data, and serves up a static landing page.</p>
-                    
-                    <p class="narrow">I'd love to spend more time on the data delivery system and especially looking at the most efficient methods for handling the apps data needs.</p>
-                    
-                    <p class="narrow">The current system arose because it was the cleanest system I found at the time to make sure every possibility of incomplete data was tested, addressed, and remedied if need be. It was efficient for building up the database. But it is too slow in practice and causes a great overuse of resources.</p> 
-                    
-                    
-                    <p class="narrow">Having seen a system operate with more complexity than on previous projects, I am more than ever aware of the value of unit testing and how the confidence in building up an app in discrete testable chunks could be incredibly beneficial.</p>
+                    <p class="narrow">The first thing to take care of is to separate the various sub-processes of gathering actor data. The individual movie data needs to be an independent search in order to speed up the delivery of information. Perhaps it is possible to maintain two separate processes: one that prioritizes speed of deliverability, one that prioritizes building the database.</p>
+                    <p class="narrow">Additionally, I'd like to create a dashboard to track the size of the Database and its contents. Perhaps also track numbers of users, of searches, of API calls vs Database success. It would be nice if I could track the number of API calls and shut that down before we hit our daily maximum.</p>
+                    <p class="narrow">On a game level (visual level?) I can go further in adding highlights to various elements of the scoreboard and history that change over time. As the clock ticks down, does it get brighter or bigger or more central? The other option, I have realized, to laying everything out all over the space is to present only one element (or a selection of elements) at one time. A single focus playing space where the current focus is the only thing occupying your sight at that time. I suppose there is some sort of hybrid with a single focus playing area with buttons or images or text replacing one another at the focus -- while at the same time a dashboard is laid over a part of the screen.</p>
                 </div>
                 
                 <div class="button-grp">
