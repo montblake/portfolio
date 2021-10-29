@@ -64,7 +64,7 @@ def projects():
 def project_six_degrees():
 
     # r1 = requests.get('https://six-degrees-flask-react.herokuapp.com')
-    # r2 = requests.get('https://six-degrees-flask.herokuapp.com/')
+    # r2 = requests.get('https://six-degrees-flask.herokuapp.com')
     # print('R1:', r1)
     # print('R2:', r2)
     return render_template('projects/sixdegrees.html', title='6DKB')
@@ -77,12 +77,16 @@ def project_chartreuse():
 
 @app.route('/projects/forking-cocktails')
 def project_cocktails():
-    # r1 = requests.get('https://salty-inlet-99632.herokuapp.com/')
+    # r1 = requests.get('https://salty-inlet-99632.herokuapp.com')
     # print('R1:', r1)
     return render_template('projects/forking-cocktails.html', title='COCKTAILS')
 
 @app.route('/projects/django-and-flask')
 def project_django_and_flask():
+    # r1 = requests.get('https://flask-detective-react-frontend.herokuapp.com')
+    # r2 = requests.get('https://server-only-dj-and-flask.herokuapp.com/')
+    # print('R1:', r1)
+    # print('R2:', r2)
     return render_template('projects/django-and-flask.html', title='DJANGO AND FLASK')
 
 
