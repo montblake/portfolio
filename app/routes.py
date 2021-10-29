@@ -70,7 +70,7 @@ def projects():
 #  individual project pages
 @app.route('/projects/6dkb')
 def project_six_degrees():
-    url1 = 'https://six-degrees-flask-react.herokuapp.com'
+    url1 = 'https://six-degrees-flask-react.herokuapp.com/'
     url2 = 'https://six-degrees-flask.herokuapp.com'
     Thread(target=make_async_request, args=(app, url1)).start()
     Thread(target=make_async_request, args=(app, url2)).start()
