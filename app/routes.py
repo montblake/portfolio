@@ -87,7 +87,7 @@ def project_cocktails():
     url1 = 'https://salty-inlet-99632.herokuapp.com' 
     Thread(target=make_async_request, args=(app, url1)).start()
     return render_template('projects/forking-cocktails.html', title='COCKTAILS')
-
+    
 @app.route('/projects/django-and-flask')
 def project_django_and_flask():
     url1 = 'https://flask-detective-react-frontend.herokuapp.com'
