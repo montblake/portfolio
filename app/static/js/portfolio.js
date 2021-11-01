@@ -1,13 +1,13 @@
 // alert('JS is working at PORTFOLIO!')
 
 const sixdkbElem = document.querySelector('#proj-sixdkb');
-// const cocktailsElem = document.querySelector('#proj-cocktails');
+const cocktailsElem = document.querySelector('#proj-cocktails');
 // const marketplaceElem = document.querySelector('#proj-marketplace');
 const chartreuseElem = document.querySelector('#proj-chartreuse');
 // const codegreenElem = document.querySelector('#proj-code-green');
 const djangoflaskElem = document.querySelector('#proj-django-and-flask');
 
-const elemsArray = [sixdkbElem, chartreuseElem, djangoflaskElem]
+const elemsArray = [sixdkbElem, cocktailsElem, chartreuseElem, djangoflaskElem]
 
 function handleMouseOver(event) {
     event.target.closest('li').style.boxShadow = '0 0 2px 2px var(--accent-color)'

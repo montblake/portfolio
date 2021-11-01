@@ -6,29 +6,34 @@
     
         <header class="project-head">
             <h1>Forking Cocktails</h1>
+            <p id="technologies">MongoDB, NodeJS, and Express with EJS, Mongoose, bcrypt, and express-sessions. Also: HTML5, CSS, Javascript, jQuery.</p>
             <nav>
                 <div id="btn-game" class="proj-btn proj-btn-current">The App</div>
-                <div id="btn-project" class="proj-btn proj-btn-active">The Project</div>
-                <div id="btn-tech" class="proj-btn proj-btn-active">Technologies Used</div>
+                <div id="btn-project" class="proj-btn proj-btn-active">About The Project</div>
+                <div id="btn-tech" class="proj-btn proj-btn-active">Coming Improvements</div>
             </nav>
         </header>
         <main id="main-cocktails">
             <div class="proj-text">
 
                 <div id="the-game">
-                    <p class="narrow">In the Eighties, he was a heart-throb. In the Nineties, a superstar. By the aughts... he was the subject of a drinking game.</p>
-                    <p class="narrow">Six Degrees of Kevin Bacon was a play on the concept that any two people in the world could be linked by six personal connections or fewer. Or something like that. </p>
+                    <p class="narrow">On the simplest level, this app allows a user to explore a cocktail recipe database. In addition to accessing and reading data of creators and their cocktail recipes, the app facilitates the creation, editing/updating, and deletion of data. The app takes its name from its ability to create new recipes using other recipes as the starting point (sort of a combination EDIT/NEW route). </p>
+                    <p class="narrow">In software development this is often called "forking" -- in the restaurant/bar world, we'd probably call it a "riff" or "spin" or "variation". In addition to the core properties of cocktails and creators, the database facilitates exploring the lineage of forked cocktails, ie. what recipe a cocktail is a variation on and what recipes are derived from that cocktail.</p>
+                    <p>Any visitor should be able to read and explore the data. In order to contribute to the site, a visitor will need to register and log in. If you'd like to explore the regration function, feel free to register yourself and log in. If you'd rather just jump in, you can log in as "Jane Smith" if you'd like. Her email is "jane@smith.com" and her password is "password".</p>
                 </div>
                 <div id="the-project" class="hidden">
-                    <p class="narrow">This project originated as a means to feature data gathered from a third-party api.</p>
+                    <p class="narrow">TThe database utilizes three main data models in relationship: a Cocktail model, an Ingredient model, and an Author/Contributor model. The ingredients are passed into an "recipe line" model so that the Cocktail recipe is able to expand to contain as many lines as needed. Also, the Cocktail model has a "Parent" property which holds a reference to another Cocktail, so it adds self-reference to its portfolio of relationships.</p>
                     
-                    <p class="narrow">The actor info is easy enough to aquire, even if it takes two searches to get all the data we need. But each actor returns sometimes a few hundred results or more for their film output.</p>       
+                    <p class="narrow">The app works as a read only database for guests while registered users can create, edit, and delete their cocktails. Registered Users should also be able to fork any cocktail, either their own or someone else's. Administrators should be able to perform any data operation on any asset.</p>       
+
+                    <p class="narrow">In terms of user experience and design, the app aims for a clean, text-only layout. The focus on legibility and a mobile-first design makes the app usable by professional bartenders on their phones during shift.</p>
                 </div>
                 
                 <div id="the-techs" class="hidden">
-                    <p class="narrow">This project is built in Python with a Flask backend and deployed on Heroku. The database is Heroku's version of PostgreSql. The frontend is built in Node/Express and features a ReactJS UI.</p>
+                    <p class="narrow">In the end, I'm hoping the app can serve as a recipe development tool as well as a database, connecting professionals and enthusiasts by forking each others work and building new cocktails in collaborative, virtual environment. Key to this will be adding more tools for creators, especially the ability to keep their recipes private (whether permanently or until deemed worthy of release).</p>
+                    <p class="narrow">This feature holds some challenges if cocktails were once public and then made private — how would this affect the tracking of parent and child cocktails? This is just one challenging aspect to the data collection that becomes more clear the more developed the app becomes. There must be an easy way of handling a new recipe if a desired ingredient isn't already in the database (without having to stop, create the ingredient, and then restart the cocktail creation).</p>
                     
-                    <p class="narrow">In addition to handling the database, the backend handles api calls to third party sources, protecting its API keys, processing search results, provides json data, and serves up a static landing page.</p>
+                    <p class="narrow">Also, as the number of entries for cocktails, ingredients, and people increase, the need to search and sort through the data will become more important. For now, working on the app has been a great introduction to using databases but it has also made clear how much more there is to learn about making use of the technology.</p>
                 </div>
                 
                 <div class="button-grp">
