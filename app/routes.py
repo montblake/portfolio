@@ -14,11 +14,7 @@ def index():
     return render_template('index.html', title='home')
 
 
-# /////////////////////////////// CONTACT AND RESUME-REQUEST /////////////////////////////
-# both routes need email to handle request
-# AT SOME POINT, separate email function to a separate file
-
-
+# /////////////////////////////// CONTACT AND RESUME-REQUEST //////////////////
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
@@ -41,14 +37,12 @@ def contact():
 def resume():
     form = RequestResumeForm()
     if form.validate_on_submit():
-        print('Yes, valid!')
         recipient_name = form.name.data  
         recipient_addr = form.email.data
         send_resume(recipient_name, recipient_addr)
         return render_template('request-resume.html', success=True, recipient=recipient_name, title='request sent')
            
     else:
-        print('NOPE!!!')
         return render_template('request-resume.html', form=form, title='request resume')
 
 
@@ -116,8 +110,6 @@ def blog():
 # ////////////////////// RECEIVE EMAIL ///////////////////////////////////
 @app.route('/email', methods=['POST'])
 def receive_email():
-   
-    print('FORWARDED!!!!!!For Real.')
     msg_to = request.form['to']
     msg_from = request.form['from']
     msg_subj = request.form['subject']
@@ -129,7 +121,7 @@ def receive_email():
     print('message: ', msg_text)
     
     forward_email(msg_to, msg_from, msg_subj, msg_text)
-    return ""
+    return "Email Forwarded"
 
 
 
