@@ -10,7 +10,7 @@ from threading import Thread
 @app.route('/')
 @app.route('/index')
 def index():
-    app.logger.info('%s has arrived', request.remote_addr)
+    app.logger.info(f'{request.remote_addr} has arrived')
     return render_template('index.html', title='home')
 
 
