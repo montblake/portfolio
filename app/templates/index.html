@@ -1,75 +1,117 @@
-{% extends 'base.html' %}
-
-{% block content %}
-    <section id="about" class="main-content">
-        <div id="container-main">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}">
+ 
+    <script src="https://kit.fontawesome.com/b54edfb646.js" crossorigin="anonymous"></script>
+  
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="Container">
+        <div class="top-border"></div>
+        <div class="black-gradient"></div>
+        <div class="tint {{tint}}"></div>
+        <div class="Main {{alignment}}">
+            <a href="{{url_for('index')}}" class="homelink">
+                <div class="Headline">
+                    <h1>{{title}}</h1>
+                    <p>{{h2}}</p>
+                </div>
+            </a>
             
-            <header>
-                <ul id="main-nav">
-                    <li id="btn-intro" class="btn-current-subject">Introduction</li>
-                    <li id="btn-boot" class="btn-active">bootcamp grad</li>
-                    <li id="btn-theater" class="btn-active">career-changer</li>
-                    <li id="btn-full" class="btn-active">full stack development</li>
-                    <li id="btn-current" class="btn-active">current Work</li>
-                </ul>
-            </header>
-            <main>
-
-                <div class="proj-text">
-                    
-                    <div id="info-intro" class="para-current-subject">
-                        <h3>Hi. I'm Blake, a software engineer and web developer based in Chicago, Illinois.</h3>
-                        
-                        <p>I believe exploring <a href="/projects" class="text-tag">my projects</a> is a good way to get to know me as a developer. I've created a landing page for each which gives some insight into how I view each project, its particular challenges, and what elements I am working on next.</p>
-                        <!-- <p>Please bear in mind these projects are hosted on free Heroku dynos and may take a few seconds for things to start up.</p> -->
-
-                        <p>If you're looking for more information about who I am and how I approach the work, you might be interested in my thoughts on being a <span id="tag-boot" class="text-tag">bootcamp grad</span>, what draws me to <span id="tag-full" class="text-tag">full stack development</span> , what I did in my <span id="tag-theater" class="text-tag">previous career</span>, and the focus of my <span id="tag-current" class="text-tag">current work.</span></p>
-                    </div>
-                    
-                    <div id="info-boot" class="hidden">
-                        <p>I got my start in coding with Stanford University's online pandemic offering <span id="cip">Code in Place</span> which gave me a foundation in computer science principles, an approach to the deconstruction of problems, a grasp of the fundamentals of the Python language, and an appreciation for the magic  of programming.</p>
-                        <p>After that, I continued with a year of self-study focusing on front-end web development. Eventually I found myself getting bogged down with trying to master every detail. Unsure of what was important, I became stuck. For me, bootcamp was the antidote.</p>
-                        <p><span id="ga">General Assembly's Software Engineering Immersive</span>, used a project-focused approach, alternating between periods of learning (lectures, code alongs, problem sets, practical lab problems) and projects. It was in the project weeks that I really learned how things were put together, how to find bugs, break down problems, become comfortable working with code, reusing and recycling things to my purpose. Most importantly, I learned how to trust the iterative nature of the development process, achieving "minimum viable product" and then building out new features as time allows.</p>
-                        <p> The program began with JavaScript and moved quickly from frontend to back, building our knowledge first with old school jQuery, then NodeJs and Express, Mongoose and MongoDB, and finally adding React for full stack applications.  Once we understood the full stack, we switched to Ruby and the Rails framework as well as changing to a relational database, PostgreSQL. Finally we ended with a self-study capstone project during which I returned to my Python roots and tackled the Flask microframework.</p>
-                        <p class="make_bold">This progression gave me the confidence to know that I can tackle any technology necessary and that behind all the various stacks, the same engineering principles are at play.</p>
-                       
-                    </div>
-                    
-                    <div id="info-full" class="hidden">
-                        <p>In my theater career, I believed strongly that there was a special magic when the performer was intimately tied to the creation of material. The whole feeling of a performance is changed when the actor is in control of the creative decisions. Similarly, I believe that certain advantages can be gained when the developers focused on user experience are also tied into the development of the technical elements facilitating that experience. By looking at both the user and the data being served, smart (and sometimes surprising) decisions can be made about how an application is constructed.</p>
-                        <p>The experience that made this clearest for me, and that inspired me to think of myself as a full stack developer and not a frontend-focused one was a group project during my bootcamp. Four of us were attempting to work together on a full stack app for a message board. My role on the project was Frontend Lead Developer. The Backend team began by putting the elements for user authentication into the application but left their work at that point without communicating what they had done or the next steps.</p>
-                        <p>Needing to direct how our team would work on the frontend the following day, I was forced to wade through the backend code myself, figure out what the team had put in place, what the details of user authentication were, and how that data could be exposed on the front end and leveraged so that only authorized users had access to the app's functions. <span id="front-to-back">While frustrating, this experience taught me the importance of understanding how data moves from the front to the back and vice-versa.</span> Either one in isolation is essentially useless. I became committed to following the flow of data throughout an app.</p>
-                    </div>
-                    
-                    <div id="info-theater" class="hidden">
-                        <p>Like many bootcamp grads, I am a career-changer...</p>
-                        <p>I studied theater in college. Nearing graduation, I was a bit torn as to whether I was an actor or director. I discovered, almost at random, a little theater school that taught "classic physical theater styles" and promoted the art of "the Actor-Creator."  I frankly didn't really know what those things were, and none of my professors could tell me much about them, yet somehow I had a suspicion that I had found my path.</p>
-                        <p>That was the beginning of a period of study in Northern California; in Minneapolis, Minnesota; and in Paris, France. The unique viewpoint I developed in those years led me to a  varied career as a performer, director, creator, producer, administrator, educator, movement coach, and more.</p>
-                        <p>Over time my specialty became leading a team of performers in the creation of original work. Providing context, direction, and guiding the process, while being open to the impulses and contributions of the co-creators. The creation of theater is all about teamwork. <span id="ensemble">Whether as a member of the team (bringing passion, creativity, respect and accountability to a process) or as a team-leader (responsible for clearly communicating a vision and nurturing a passionate commitment in one's collaborators), this ensemble mentality is one of the strongest assets I bring to the engineering field.</span></p>
-                    </div>
-                    
-                    <div id="info-current" class="hidden">
-                        <p>As a bootcamp grad entering the job market, it is easy to become overwhelmed by the amount of things you don't know. Looking at job listings naturally stirs thoughts of inadequacy and all the concepts, tools, and technologies that you haven't learned yet fill your brain with doubt.</p>
-                        <p>I had two separate conversations with established, senior developers, both of whom were quite clear that they thought it was more important to do deeper in material than continue to add to my list of proficiencies. My initial reaction was "No way! There is still so much I need to learn!" Very quickly this led to a sense of paralysis and despair.</p>
-                        <p>Eventually clarity emerged: the importance of building on what I DO know, became clear. More important than learning a new framework or language or library was to focus on developing my core engineering skills. By not worrying about learning new languages, I can focus on building more professional work habits such adding test driven development (TDD) into my workflow instead.</p>
-                    </div>
-                    
-                    <div id="info-code" class="hidden">
-                        <p>Code in place. I got my start. Shout out ot pedagogy. To getting me to think beyond lines of code. To begin asking how do I solve problems? While stressing the details of not just how Python works but why it work. The lectures and pedagogy show the results of a program years in the making, many iterations. And the insight, passion, and care of professors Piech and Sahami.</p>
-                        <p>To go back this past spring and Lead a section of the class. was a wonderful chance to give back and to get access to a bunch of teaching pedagogy insights from some really amazing professors. Tilde offal consectetur 3 wolf moon. Bitters dreamcatcher culpa cillum aliquip, ipsum cray tumblr id aliqua salvia pok pok lumbersexual kogi. Tempor twee man bun letterpress umami. Sed typewriter tousled, magna narwhal est et elit schlitz culpa taxidermy.</p>
-                    </div>
-                    
+            <div class="salespitch">
+                <div id="pitch-text">
+                  <p>Career-changing, bootcamp-trained developer adept at functional and object-oriented programming with both JavaScript and Python.</p>
+                  <p>A former theater director naturally drawn to crafting rich, intuitive user experiences as well as the routing and database operations demanded by modern data-driven applications.</p>
+              
                 </div>
-
-                <div class="proj-image">
-                    <img id="image1" class="current-image" src="{{url_for('static', filename="images/blake_pic.jpg")}}" alt="project screenshot">
-                    <img id="image2" class="hidden-image" src="{{url_for('static', filename="images/six-deg2.png")}}" alt="project screenshot">
-                    <img id="image3" class="hidden-image" src="{{url_for('static', filename="images/six-deg3.png")}}" alt="project screenshot">
-                </div>
-            </main>
-
+                <nav class="contact-links">
+                    <a href="https://www.linkedin.com/in/blake-montgomery312/" target="_blank" ><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/montblake" target="_blank"><i class="fab fa-github"></i></a>
+                </nav>
+              </div>
+        
+            <!-- The following element is out of regular layout order -->
+            <image id="portrait" width="110%" src="{{url_for('static', filename="images/diffBlake.jpeg")}}"/>
+        
         </div>
-    </section>
-    <script src="{{url_for('static', filename='js/index.js')}}"></script>
-{% endblock %}
+        
+        <div class="Sidebar">
+            <div class="projects">
+                <div class="project">
+                  <div class="project-image-frame">
+                      <img src="{{url_for('static', filename="images/forking.png")}}" class="project-image" alt="screenshot of app"/>
+                  </div>
+                  <div class="project-text">
+                      <h3>FORKING COCKTAILS</h3>
+                      <h4>NodeJS, Express, EJS, Mongoose, MongoDB</h4>
+                      <p>Recipe Development Tool and Cocktail Database rendered via template from database with full CRUD functionality, user authentication and authorization.</p>
 
+                  </div>
+                  <div class="project-nav">
+                      <a class="button" href="https://salty-inlet-99632.herokuapp.com/" target="_blank">Open App</a>
+                      <a class="button" href="https://github.com/montblake/cocktails" target="_blank" >Explore Code on GitHub</a>
+                  </div>
+                </div>
+            
+                <div class="project">
+            
+                        <div class="project-image-frame">
+                            <img src="{{url_for('static', filename="images/intergalactic-screenshot.png")}}" class="project-image" alt="screenshot of app"/>
+                        </div>
+                        <div class="project-text">
+                            <h3>INTERGALACTIC TRANSPORT</h3>
+                            <h4>NodeJS, Express, MongoDB, Mongoose</h4>
+                            <p>Application for a fictional spaceship store. Two related models, a simplified inventory/shopping cart system, user authentication and authorization.</p>
+                        </div>
+                        <div class="project-nav">
+                            <a class="button" href="https://intergalactic-transport.herokuapp.com/" target="_blank">Deployed App</a>
+                            <a class="button" href="https://github.com/montblake/spaceship-store" target="_blank" >GitHub</a>
+                        </div>
+
+                </div>
+            
+                <div class="project">
+                        <div class="project-image-frame">
+                            <img src="{{url_for('static', filename="images/FleetingCommunes.png")}}" class="project-image" alt="screenshot of app"/>
+                        </div>
+                        <div class="project-text">
+                            <h3>FLEETING COMMUNES</h3>
+                            <h4>React, NodeJS, Express, WebSockets, WebRTC</h4>
+                            <p>Peer-to-peer videochat with messaging capabilities, rooms built using NodeJs, Node's ws library for websocket implementation, PeerJS for WebRTC peer-to-peer media sharing, React for UI.</p>
+                            
+                        </div>
+                        <div class="project-nav">
+                            <a class="button" href="https://fleeting-communes.herokuapp.com/" target="_blank">Deployed App</a>
+                            <a class="button" href="https://github.com/montblake/fleeting-communes" target="_blank" >GitHub for React Frontend</a>
+                            <a class="button" href="https://github.com/montblake/spare-socket-server" target="_blank" >GitHub for Express Backend</a>
+                        </div>
+                </div>
+        
+                <div class="project">
+    
+                        <div class="project-image-frame">
+                            <img src="{{url_for('static', filename="images/six-deg.png")}}" class="project-image" alt="screenshot of app"/>
+                        </div>
+                        <div class="project-text">
+                            <h3>SIX_D_KB</h3> 
+                            <h4>React, Python, Flask, SQLAlchemy, PostgreSQL</h4>
+                            <p>Trivia game featuring data from third party APIs with a PostgreSQL database implementation designed to reduce API calls over time.</p>
+                        </div>
+                        <div class="project-nav">
+                            <a class="button" href="https://six-degrees-flask-react.herokuapp.com/" target="_blank">Play Game</a>
+                            <a class="button" href="https://github.com/montblake/six-degrees-react" target="_blank" >React Frontend GitHub</a>
+                            <a class="button" href="https://github.com/montblake/six-degrees-flask" target="_blank" >Flask Backend GitHub</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    <script src="{{url_for('static', filename="js/portrait_animation.js")}}"></script>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="project-template">
+    <!-- <div class="project-header">
+      <h2>Six_D_KB</h2>
+      <h3>React, Python, Flask, SQLAlchemy, PostgreSQL</h3>
+    </div> -->
+    <div class="project-body">
+      <p>Trivia game featuring data from third party APIs with a database implementation designed to reduce API calls over time.</p>
+      <p>The parlor game Six Degrees of Kevin Bacon was inspired by the concept that any two people in the world could be linked by six personal connections or fewer. The game begins with some actor from a Hollywood film. The challenge is to link them — through films they have worked on and actors with whom they have worked — to Kevin Bacon with six degrees of separation or less.</p>
+      <!-- <p>The SIX_D_KB app offers two ways to start the game: with an actor chosen at random from the database or by the user entering a specific actor by name. And, if by chance you don't like Kevin Bacon, know who Kevin Bacon is, or for any other reason, you can change the game with a simple click. The user can scroll through the actor's filmography, clicking on any title to reveal a cast list, and look for Kevin Bacon. Or they can select ANY actor from the cast lists in the hope THAT person has worked with Kevin Bacon. As you progress the app keeps track of who worked with whom, how many guesses remain, how much time remains of the clock.</p> -->
+      <!-- <p>This was originally my first project at General Assembly in which the challenge was to build an app that gathered data from some free API and injected it into a simple html, css webpage using jQuery to handle dynamic rendering and user interaction</p>
+      <p>The real challenge turned out to be how much data I needed to deal with. In tackling "Six Degrees of Kevin Bacon", I needed to enter an actor's name and get back an official entry with name, image, and a list of all their films. Getting the filmography was easy. Filtering the list until only major Hollywood movies remained was a bit more interesting.</p>
+      <p>For major stars an initial list was often in the range of 500 or so entries; algorithm left us with 40 or 50 final films. The filmography list already contained not only those films' titles, but also the year they were released and poster images. What it didn't have was any kind of cast list. For that, the app needed to call a different API once for each film.</p>
+      <p>This first phase of the project was just about creating handling this information. I had to create some javascript objects to hold the data, the process had to be repeatable six times. Finally a visual frame had to be created to hold all this information as it arrived. There was no end, no real semblance of the game.</p> -->
+      <!-- <p>For the August Mintbean Hackathon for Junior Devs, I revised this project. Now it has a Flask backend along with a React frontend. The main goal was to go further in "gamifying" the data. I added the game logic and highlighted the game aspects in visual layout.</p>
+      <p>Beyond that, I had another goal: I wanted to store the results of all our API calls and reduce the need for calls over time. Working with SQLAlchemy and a PostgreSQL database, I added film and actor tables and set up the various relationships. Finally I had to create the logic to get information from the database if available before making an api call and also to check the completeness of that information and if necessary make an api call to complete the information.</p> -->
+      <p>Unfortunately, the current state of the app has a big drawback. It is SLOW! If the info is in the database, everything works great. If not, the current version has to collect ALL of the information before it returns ANYTHING. All fifty movie casts must be individually looked up before you can even see the actor's picture.</p>
+
+    </div>   
+    <div class="project-nav">
+      <a class="button" href="https://six-degrees-flask-react.herokuapp.com/" target="_blank">Play Game</a>
+      <a class="button" href="https://github.com/montblake/six-degrees-react" target="_blank" >React Frontend GitHub</a>
+      <a class="button" href="https://github.com/montblake/six-degrees-flask" target="_blank" >Flask Backend GitHub</a>
+      <a class="button" href="{{url_for('index')}}">Back to Portfolio</a>
+    </div>
+  </div>
+{% endblock %}

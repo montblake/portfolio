@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Finlandica:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  font-size: 16px;
+  --accent-color: rgb(222, 184, 135);
+  --lighter-accent: #ece3d2;
+  --mid-accent: rgb(229, 205, 174);
+  --brown: rgb(97, 18, 18);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Finlandica', sans-serif;
+  background-color: #181818;
+  display: flex;
+  justify-content: center;
+  /* align-items: center;
+  height: 100vh; */
+}
+
+.top-border {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 5;
+}
+
+.black-gradient {
+  position: absolute;
+  z-index: 5;
+  width: 15%;
+  height: 100vh;
+  background-image: linear-gradient(to right, rgba(97,18,18,1), rgba(97,18,18,0));
+  mix-blend-mode: multiply;
+}
+
+.tint {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: .33;
+}
+
+.cocktail {
+  background: purple;
+  /* mix-blend-mode: multiply; */
+
+}
+
+.spacestore {
+  background: orangered;
+  /* mix-blend-mode: multiply; */
+
+}
+
+.commune {
+  background: cyan;
+  /* mix-blend-mode: multiply; */
+
+}
+
+.bacon {
+  background: orange;
+  /* mix-blend-mode: multiply; */
+
+}
+
+.Container {
+  height: 100%;
+  width: 100%;
+  max-width: 1080px;
+  max-height: 720px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  border:1px solid rgba(255,255,255,.1);
+ 
+}
+
+.Main {
+  width: 34%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+}
+
+.alignStart {
+  justify-content: flex-start;
+}
+
+.alignSpaceBetween {
+  justify-content: space-between;
+}
+
+.Sidebar {
+  width: 66%;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* background: rgba(255,255,255, .25); */
+  background: rgba(0,0,0, .75);
+  background: var(--lighter-accent);
+  position: relative;
+  z-index: 5;
+  /* overflow-y: scroll; */
+}
+
+.homelink {
+  text-decoration: none;
+}
+
+.Headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 25;
+  /* padding: 2rem; */
+}
+
+.Headline h1 {
+  color:  var(--accent-color);
+  font-size: 2.75vw;
+}
+
+.Headline p {
+  color: whitesmoke;
+  font-size: 2vw;
+}
+
+
+#portrait {
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  transition: height 10s, transform 6s, opacity 8s;
+  transition: height 16s, transform 10s, opacity 8s;
+  /* transition: height .5s, transform .5s, opacity .5s; */
+  opacity: 33%;
+  z-index: 0;
+}
+
+.salespitch {
+  width: 100%;
+  /* height: 100%; */
+  display: block;
+  /* background: yellow;  */
+  position: relative;
+  z-index: 10;
+  margin: 1rem 0 0 0;
+  /* padding: 2rem; */
+
+}
+
+#pitch-text {
+  color: rgba(245, 245, 245, 0.66);
+  font-size: .85rem;
+  line-height: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-links {}
+
+.contact-links a {
+  color:  var(--accent-color);
+  font-size: 1rem;
+  /* margin-right: 2px; */
+}
+
+/* PROJECTS */
+.projects {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 1rem 1rem;
+  overflow-y: scroll;
+}
+
+.project {
+  width: 45%;
+  /* height: 25%; */
+  max-height: 400px;
+  background: rgba(255,255,255,.5);
+  /* background: var(--mid-accent); */
+  border: 1px solid rgba(0,0,0,.25);
+  color: black;
+  padding: .5rem;
+}
+
+.project-nav {
+  margin: .5rem 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(78, 23, 23, .75); */
+}
+
+.button {
+  font-size: .6rem;
+  color: var(--accent-color);
+  padding: .25rem .5rem;
+  width: 66%;
+  border: 1px solid var(--accent-color);
+  display: block;
+  margin: 0 0 .25rem 0;
+  background: rgb(78, 23, 23);
+
+}
+
+
+.project-image-frame {
+  width: 100%;
+  max-height: 180px;
+  overflow: hidden;
+  /* position: relative; */
+  border: 1px solid rgb(78, 23, 23);
+  /* display: flex;
+  justify-content: center;
+  align-items: flex-start; */
+}
+
+.project-image {
+  width: 100%;
+  opacity: 1;
+  transition: opacity .75s;
+}
+
+.project-image:hover {
+  opacity: .75;
+}
+
+.project-text {
+  margin: .25rem 0 0 0;
+}
+
+.project-text p {
+  font-weight: 400;
+  font-size: .66rem;
+  color: rgb(97, 18, 18);
+
+}
+
+.project-text h3 {
+  font-weight: 700;
+  font-size: .85rem;
+  color: rgb(97, 18, 18);
+
+}
+
+.project-text h4 {
+  font-weight: 200;
+  font-style: italic;
+  font-size: .6rem;
+  color: rgb(97, 18, 18);
+  margin: 0 0 .25rem 0;
+
+}
+.project a {
+  text-decoration: none;
+}
+
+.Footer {
+  height: 12vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0%;
+}
+.Footer2 {
+  height: 24vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0%;
+}
+.Footer3 {
+  height: 36vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0%;
+}
+
+.Footer4 {
+  height: 48vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0%;
+}
+
+.Footer5 {
+  height: 60vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0%;
+}
+
+
+
+
+/* @media (orientation: landscape) and (min-aspect-ratio: 5/3) {
+
+  .Sidebar {
+    width: 50%;
+  }
+
+  #portrait {
+    top: 0;
+    left: -20px;
+  }
+}
+
+@media (orientation: landscape) and (min-aspect-ratio: 3/2) {
+
+  .Sidebar {
+    width: 40%;
+  }
+
+  #portrait {
+    top: 0px;
+    left: 0px;
+  }
+}
+
+
+@media (orientation: portrait) and (max-aspect-ratio: 16/20) {
+  .Footer {
+    opacity: 100%;
+  }
+
+}
+
+@media (orientation: portrait) and (max-aspect-ratio: 14/20) {
+  .Footer2 {
+    opacity: 100%;
+  }
+
+}
+
+@media (orientation: portrait) and (max-aspect-ratio: 12/20) {
+  .Footer3 {
+    opacity: 100%;
+  }
+
+}
+
+@media (orientation: portrait) and (max-aspect-ratio: 10/20) {
+  .Footer4 {
+    opacity: 100%;
+  }
+
+}
+
+@media (orientation: portrait) and (max-aspect-ratio: 8/20) {
+
+}
+
+@media (max-width: 800px) {
+  .Sidebar {
+    width: 40%;
+  }
+  .salespitch {
+    width: 280px;
+  }
+}
+
+@media (max-width: 700px) {
+  .Sidebar {
+    width: 50%;
+  }
+  .salespitch {
+    width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Sidebar {
+    width: 66%;
+  }
+  .salespitch {
+    width: 240px;
+  }
+  .Container {
+    flex-direction: column;
+  }
+} */
+
+
+@media (max-width: 640px) {
+  .Container {
+    flex-direction: column;
+  }
+  .Main {
+    width: 100%;
+    padding: 2rem;
+  }
+  .Sidebar {
+    width: 100%;
+  }
+  .top-border {
+    height: 80px;
+  }
+  .Headline h1 {
+    font-size: 1.25rem;
+  }
+
+  .Headline p {
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .top-border {
+    height: 0px;
+  }
+  .projects {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .project {
+    width: 100%;
+  }
+  .Headline h1 {
+    font-size: 1.25rem;
+  }
+
+  .Headline p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  .Headline h1 {
+    font-size: 1.9rem;
+  }
+
+  .Headline p {
+    font-size: 1.4rem;
+  }
+}

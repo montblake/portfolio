@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.ico')}}">
  
     <script src="https://kit.fontawesome.com/b54edfb646.js" crossorigin="anonymous"></script>
@@ -12,46 +12,108 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <header id="header">
-               
-        <nav id="links-pages">
-            {% if title == 'home' %}
-                <a href="{{url_for('index')}}" class="current-page-btn">Home</a>
-            {% else %}
-                <a href="{{url_for('index')}}" class="active-btn">Home</a>
-            {% endif %}
+    <div class="Container">
+        <div class="top-border"></div>
+        <div class="black-gradient"></div>
+        <div class="tint {{tint}}"></div>
+        <div class="Main {{alignment}}">
+            <a href="{{url_for('index')}}" class="homelink">
+                <div class="Headline">
+                    <h1>{{title}}</h1>
+                    <p>{{h2}}</p>
+                </div>
+            </a>
+            
+            <div class="salespitch">
+                <div id="pitch-text">
+                    <p>Career-changing, bootcamp-trained developer adept at functional and object-oriented programming with both javascript and python.</p>
+                    <p>A former theater director naturally drawn to crafting rich, intuitive user experiences</p>
+                    <p>Equally drawn to the technical details, from frontend to back, harnessing the power of modern data-driven applications.</p>
+              
+                </div>
+                <nav class="contact-links">
+                    <a href="https://www.linkedin.com/in/blake-montgomery312/" target="_blank" ><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/montblake" target="_blank"><i class="fab fa-github"></i></a>
+                </nav>
+              </div>
+        
+            <!-- The following element is out of regular layout order -->
+            <image id="portrait" width="110%" src="{{url_for('static', filename="images/diffBlake.jpeg")}}"/>
+        
+        </div>
+        
+        <div class="Sidebar">
+            <div class="projects">
+                <div class="project">
+         
+                            <div class="project-image-frame">
+                                <img src="{{url_for('static', filename="images/forking.png")}}" class="project-image" alt="screenshot of app"/>
+                            </div>
+                            <div class="project-text">
+                                <h3>FORKING COCKTAILS</h3>
+                                <h4>NodeJS, Express, EJS, Mongoose, MongoDB</h4>
+                                <p>Recipe Development Tool and Cocktail Database rendered via template from database with full CRUD functionality, user authentication and authorization.</p>
+                            </div>
+                            <div class="project-nav">
+                                <a class="button" href="https://salty-inlet-99632.herokuapp.com/" target="_blank">Open App</a>
+                                <a class="button" href="https://github.com/montblake/cocktails" target="_blank" >Explore Code on GitHub</a>
+                              </div>
 
-            {% if title == 'projects' %}
-                <a href="{{url_for('projects')}}" class="current-page-btn">Projects</a>
-            {% else %}
-                <a href="{{url_for('projects')}}" class="active-btn">Projects</a>
-            {% endif %}
+                    </div>
+            
+                <div class="project">
+            
+                        <div class="project-image-frame">
+                            <img src="{{url_for('static', filename="images/intergalactic-screenshot.png")}}" class="project-image" alt="screenshot of app"/>
+                        </div>
+                        <div class="project-text">
+                            <h3>INTERGALACTIC TRANSPORT</h3>
+                            <h4>NodeJS, Express, MongoDB, Mongoose</h4>
+                            <p>Application for a fictional spaceship store. Two related models, a simplified inventory/shopping cart system, user authentication and authorization.</p>
+                        </div>
+                        <div class="project-nav">
+                            <a class="button" href="https://intergalactic-transport.herokuapp.com/" target="_blank">Deployed App</a>
+                            <a class="button" href="https://github.com/montblake/spaceship-store" target="_blank" >GitHub</a>
+                        </div>
 
-            {% if title == 'contact' %}
-                <a href="{{url_for('contact')}}" class="current-page-btn">Contact</a>
-            {% else %}
-                <a href="{{url_for('contact')}}" class="active-btn">Contact</a>
-            {% endif %}
-            </nav>
-       
-        <h1>Blake Montgomery<span> software engineer</span></h1>
-    </header>
-
+                </div>
+            
+                <div class="project">
+                        <div class="project-image-frame">
+                            <img src="{{url_for('static', filename="images/FleetingCommunes.png")}}" class="project-image" alt="screenshot of app"/>
+                        </div>
+                        <div class="project-text">
+                            <h3>FLEETING COMMUNES</h3>
+                            <h4>React, NodeJS, Express, WebSockets, WebRTC</h4>
+                            <p>Peer-to-peer videochat with messaging capabilities, rooms built using NodeJs, Node's ws library for websocket implementation, PeerJS for WebRTC peer-to-peer media sharing, React for UI.</p>
+                            
+                        </div>
+                        <div class="project-nav">
+                            <a class="button" href="https://fleeting-communes.herokuapp.com/" target="_blank">Deployed App</a>
+                            <a class="button" href="https://github.com/montblake/fleeting-communes" target="_blank" >GitHub for React Frontend</a>
+                            <a class="button" href="https://github.com/montblake/spare-socket-server" target="_blank" >GitHub for Express Backend</a>
+                        </div>
+                </div>
+        
+                <div class="project">
     
-    {% block content %} {% endblock %}
-    
-    <footer id="footer">
-        <p><span>Blake Montgomery</span> is a software engineer and web developer based in Chicago, Illinois.</p>
-        <p>Questions, comments, job offers? Projects to propose? Bugs to report? <a href="{{url_for('contact')}}">Please get in touch.</a></p>
-        {% if not title == "resume request" %}
-        <p>Need to see a resume? <a href="{{url_for('resume')}}">That can be arranged.</a></p>
-        {% endif %}
-        <nav class="links-contact">
-            <a href="https://www.linkedin.com/in/blake-montgomery312/" target="_blank" ><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/montblake" target="_blank"><i class="fab fa-github"></i></a>
-
-        </nav>
-    </footer>
-  
+                        <div class="project-image-frame">
+                            <img src="{{url_for('static', filename="images/six-deg.png")}}" class="project-image" alt="screenshot of app"/>
+                        </div>
+                        <div class="project-text">
+                            <h3>SIX_D_KB</h3> 
+                            <h4>React, Python, Flask, SQLAlchemy, PostgreSQL</h4>
+                            <p>Trivia game featuring data from third party APIs with a PostgreSQL database implementation designed to reduce API calls over time.</p>
+                        </div>
+                        <div class="project-nav">
+                            <a class="button" href="https://six-degrees-flask-react.herokuapp.com/" target="_blank">Play Game</a>
+                            <a class="button" href="https://github.com/montblake/six-degrees-react" target="_blank" >React Frontend GitHub</a>
+                            <a class="button" href="https://github.com/montblake/six-degrees-flask" target="_blank" >Flask Backend GitHub</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    <script src="{{url_for('static', filename="js/portrait_animation.js")}}"></script>
+    </div> 
 </body>
 </html>
